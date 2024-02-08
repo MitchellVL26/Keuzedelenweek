@@ -50,6 +50,28 @@ createButton("Spiegelen", "Ga spiegelen")
 createButton("Actie", "Ga Actie restanten vullen")
 setBackground("Teamleider.JPG")
 
+--[Game voor Actie]
+elseif(aName == "Actie") then
+CLS()
+createTextfield("Actie", "Je kan de wijn niet vinden wat doe je?")
+createButton("kutvraag", "Zoek je teamleider in het magazijn en vraag het aan hem")
+createButton("blijf zoeken", "Blijf zoeken en hoop dat je het vind")
+setBackground("Wijn.PNG")
+
+--[Blijven zoeken]
+elseif(aName == "blijf zoeken") then
+CLS()
+createTextfield("blijf zoeken", "Je hebt het gevonden maar je laat een fles vallen\nWat doe je nu?")
+createButton("kutvraag", "Ga naar het magazijn om de schoonmaakmachine te halen")
+setBackground("Wijn.PNG")
+
+--[Game voor Spiegelen]
+elseif(aName == "Spiegelen") then
+CLS()
+createTextfield("start", "Je teamleider lacht je uit\nwie wilt er nou spiegelen man hij ontslaat je")
+createButton("start", "Opnieuw")
+setBackground("Teamleider.JPG")
+
 --[Game voor zuivel vullen]
 elseif(aName == "Zuivel vullen") then
 CLS()
@@ -96,6 +118,7 @@ CLS()
 createTextfield("deuren dicht", "De deuren sluiten opeens en je kan er niet doorheen")
 createButton("onderzoeken", "Onderzoek wat er gebeurd")
 setBackground("Magazijn.JPG")
+playSound("door.WAV")
 
 
 --[Op onderzoek uit]
@@ -106,6 +129,7 @@ createButton("Kijken", "Loop de koeling in")
 createButton("Rennen", "Ren weg")
 createButton("verstoppen", "Verstop je in het teamleider kantoor")
 setBackground("Magazijn.JPG")
+playSound("footstep.WAV")
 
 
 --[dood door zombie]
@@ -114,6 +138,7 @@ CLS()
 createTextfield("dood door zombie", "De Zombie teamleider heeft je vermoord")
 createButton("start", "Opnieuw beginnen")
 createButton("Zuivel vullen", "Opnieuw beginnen met zuivel vullen")
+createButton("Actie", "Opnieuw beginnen met actie vullen")
 setBackground("Zombie.PNG")
 
 --[Koeling in]
@@ -135,11 +160,11 @@ setBackground("Zombie.PNG")
 --[verstoppen]
 elseif(aName == "verstoppen") then
 CLS()
-createTextfield("verstoppen", "Je ziet je teamleider als zombie uit de koeling komen\n hij loopt het kantoor in maar\n gelukkig ziet hij jouw niet")
+createTextfield("verstoppen", "Je ziet je teamleider als zombie uit de koeling komen\n hij loopt het kantoor in maar gelukkig ziet hij jouw niet")
 createButton("vechten", "val hem aan")
 createButton("wegsluipen", "probeer ongezien weg te sluipen")
 setBackground("Zombie.PNG")
-
+playSound("footstep.WAV")
 
 --[wegsluipen]
 elseif(aName == "wegsluipen") then
@@ -151,6 +176,7 @@ setBackground("Zombie.PNG")
 
 --[vechten]
 elseif(aName == "vechten") then
+CLS()
 createTextfield("vechten", "de zombie is vrij zwak en je haalt hem neer\n met welk wapen ga je hem afmaken")
 createButton("computer", "Sla hem neer met de computer")
 createButton("teddybeer", "Sla hem neer met een speelgoedteddybeer")
@@ -159,6 +185,7 @@ setBackground("Zombie.PNG")
 
 --[computer slaan]
 elseif(aName == "computer") then
+CLS()
 createTextfield("computer", "Je bent zwak dus je kan geen computer tillen\n Je gaat dood")
 createButton("dood door zombie", "Naar dood scherm")
 setBackground("Zombie.PNG")
@@ -166,6 +193,7 @@ setBackground("Zombie.PNG")
 
 --[teddybeer slaan]
 elseif(aName == "teddybeer") then
+CLS()
 createTextfield("teddybeer", "je wil serieus een zombie met een teddybeer vermoorden\n tuurlijk ga je dood")
 createButton("dood door zombie", "Naar dood scherm")
 setBackground("Zombie.PNG")
@@ -173,14 +201,15 @@ setBackground("Zombie.PNG")
 
 --[schaar knippen]
 elseif(aName == "schaar") then
+CLS()
 createTextfield("schaar", "Het lukt je knipt ze lul eraf en hij jankt als een baby\n daarna valt hij dood neer door verdriet")
 createButton("start", "Opnieuw")
+createButton("afsluiten", "Game afsluiten")
 setBackground("Gewonnen.JPG")
 
---[Game voor Spiegelen]
-elseif(aName == "Spiegelen") then
-createTextfield("Spiegelen", "Je teamleider lacht je uit\nwie wilt er nou spiegelen man hij ontslaat je")
-createButton("start", "Opnieuw")
-setBackground("Teamleider.JPG")
+--[afsluiten]
+elseif(aName == "afsluiten") then
+exitGame()
+
 end
 end
